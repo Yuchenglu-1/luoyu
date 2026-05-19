@@ -1,2 +1,29 @@
+server:
+  port: 9101
 
-111
+spring:
+  application:
+    name: myshop-user
+  datasource:
+    url: jdbc:mysql://192.168.100.129:3306/springcloud?characterEncoding=UTF8&useSSL=false
+    username: root
+    password: 520luoyuhao
+  jpa:
+    show-sql: true # 是否打印sql语句
+    generate-ddl: true # 是否自动建表
+    database: mysql # jpa连接的数据库类型
+    hibernate:
+      ddl-auto: update  # 建议加上这一行，确保实体类改动能同步到数据库
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+  instance:
+    prefer-ip-address: true
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
